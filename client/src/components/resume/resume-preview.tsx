@@ -1,4 +1,3 @@
-
 import { forwardRef, useState, useRef, useEffect, useCallback } from "react";
 import { Button } from '@/components/ui/button';
 import { 
@@ -21,71 +20,108 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-// Types
-interface PersonalInfo {
-  name: string;
-  phone: string;
-  email: string;
-  linkedin: string;
-  summary: string;
-}
-
-interface Education {
+// Updated Types based on new schema
+interface Project {
   id: string;
-  institution: string;
-  degree: string;
-  gpa: string;
-  year: string;
+  project_name: string | null;
+  project_description: string | null;
+  description_bullets: string[];
   visible: boolean;
 }
 
 interface WorkExperience {
   id: string;
-  designation: string;
-  company: string;
-  year: string;
-  bullets: string[];
+  company_name: string | null;
+  company_description: string | null;
+  location: string | null;
+  duration: string | null;
+  designation: string | null;
+  designation_description: string | null;
+  projects: Project[];
   visible: boolean;
 }
 
-interface Project {
+interface Internship {
   id: string;
-  title: string;
-  technologies: string;
-  year: string;
-  bullets: string[];
+  company_name: string | null;
+  company_description: string | null;
+  location: string | null;
+  designation: string | null;
+  designation_description: string | null;
+  duration: string | null;
+  internship_work_description_bullets: string[];
   visible: boolean;
 }
 
-interface POR {
+interface Education {
   id: string;
-  title: string;
-  year: string;
-  bullets: string[];
+  college: string | null;
+  degree: string | null;
+  start_year: number | null;
+  end_year: number | null;
+  cgpa: number | null;
   visible: boolean;
 }
 
-interface Achievement {
+interface ScholasticAchievement {
   id: string;
-  title: string;
-  year: string;
-  description: string;
+  title: string | null;
+  awarding_body: string | null;
+  year: number | null;
+  description: string | null;
+  visible: boolean;
+}
+
+interface PositionOfResponsibility {
+  id: string;
+  role: string | null;
+  role_description: string | null;
+  organization: string | null;
+  organization_description: string | null;
+  location: string | null;
+  duration: string | null;
+  responsibilities: string[];
+  visible: boolean;
+}
+
+interface ExtraCurricular {
+  id: string;
+  activity: string | null;
+  position: string | null;
+  description: string | null;
+  year: number | null;
   visible: boolean;
 }
 
 interface Certification {
   id: string;
-  name: string;
-  issuer: string;
-  year: string;
+  certification: string | null;
+  description: string | null;
+  issuing_organization: string | null;
+  time_of_certification: number | null;
   visible: boolean;
 }
 
+interface AcademicProject {
+  id: string;
+  project_name: string | null;
+  project_description: string | null;
+  description_bullets: string[];
+  duration: string | null;
+  visible: boolean;
+}
+
+interface PersonalInfo {
+  name: string | null;
+  phone_number: string | null;
+  email: string | null;
+  summary: string | null;
+}
+
 interface Skills {
-  technical: string;
-  languages: string;
-  frameworks: string;
-  tools: string;
+  skills: string[];
+  languages: string[];
+  interests: string[];
 }
 
 interface StyleOptions {
@@ -115,26 +151,34 @@ interface FieldFormat {
   letterSpacing?: string;
 }
 
+// Updated ResumeData interface
 interface ResumeData {
   personalInfo: PersonalInfo;
-  education: Education[];
-  workExperience: WorkExperience[];
-  projects: Project[];
-  pors: POR[];
-  achievements: Achievement[];
+  education_entries: Education[];
+  work_experiences: WorkExperience[];
+  internships: Internship[];
+  academic_projects: AcademicProject[];
+  positions_of_responsibility: PositionOfResponsibility[];
+  achievements: ScholasticAchievement[];
+  extra_curriculars: ExtraCurricular[];
   certifications: Certification[];
   skills: Skills;
+  external_links: string[];
 }
 
 interface SectionVisibility {
   summary: boolean;
   education: boolean;
   workExperience: boolean;
+  internships: boolean;
   projects: boolean;
+  academicProjects: boolean;
   pors: boolean;
   achievements: boolean;
+  extraCurriculars: boolean;
   certifications: boolean;
   skills: boolean;
+  externalLinks: boolean;
 }
 
 interface TextSelection {
@@ -149,9 +193,9 @@ interface ResumePreviewProps {
   data: ResumeData;
   sectionVisibility?: SectionVisibility;
   styleOptions: StyleOptions;
-  fontSettings?: FontSettings; // ADD: Font settings for global formatting
-  fieldFormats?: Record<string, FieldFormat>; // ADD: Field-specific formatting
-  getFieldFormatting?: (fieldKey: string) => FieldFormat; // ADD: Function to get field formatting
+  fontSettings: FontSettings;  // Make this required, not optional
+  fieldFormats?: Record<string, FieldFormat>;
+  getFieldFormatting?: (fieldKey: string) => FieldFormat;
   onSectionClick: (section: string, index?: number) => void;
   className?: string;
   isMobileView?: boolean;
@@ -159,7 +203,7 @@ interface ResumePreviewProps {
   onTextChange?: (section: string, field: string, value: string, index?: number) => void;
 }
 
-// FloatingFormatToolbar component
+// FloatingFormatToolbar component (unchanged)
 const FloatingFormatToolbar: React.FC<{
   onFormatChange: (selection: TextSelection, format: string, value: any) => void;
   currentFormats: {
@@ -727,36 +771,6 @@ const FloatingFormatToolbar: React.FC<{
 };
 
 // RenderEditableText component
-
-import { forwardRef, useState, useRef, useEffect, useCallback } from "react";
-import { Button } from '@/components/ui/button';
-import { 
-  Bold, 
-  Italic, 
-  Underline, 
-  AlignLeft, 
-  AlignCenter, 
-  AlignRight, 
-  AlignJustify,
-  RotateCcw,
-  Space,
-  Type
-} from 'lucide-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-
-// Types
-// ... existing types
-
-// FloatingFormatToolbar component
-// ... existing FloatingFormatToolbar component
-
-// RenderEditableText component
 const RenderEditableText = ({
   content,
   className,
@@ -832,15 +846,15 @@ const RenderEditableText = ({
   );
 };
 
-// ResumePreview component
+// Main ResumePreview component with updated schema
 export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
   ({
     data,
     sectionVisibility,
     styleOptions,
-    fontSettings, // ADD: Accept fontSettings prop
-    fieldFormats, // ADD: Accept fieldFormats prop
-    getFieldFormatting, // ADD: Accept getFieldFormatting prop
+    fontSettings,
+    fieldFormats,
+    getFieldFormatting,
     onSectionClick,
     className = "",
     isMobileView = false,
@@ -851,11 +865,15 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
       summary: true,
       education: true,
       workExperience: true,
+      internships: true,
       projects: true,
+      academicProjects: true,
       pors: true,
       achievements: true,
+      extraCurriculars: true,
       certifications: true,
-      skills: true
+      skills: true,
+      externalLinks: true
     };
 
     const visibility = sectionVisibility || defaultSectionVisibility;
@@ -899,7 +917,6 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
       professional: 'font-sans'
     };
 
-    // ADD: Apply global font settings
     const getGlobalStyles = () => {
       if (!fontSettings) return {};
       
@@ -912,23 +929,19 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
       return styles;
     };
 
-    // ADD: Get combined font classes
     const getFontClasses = () => {
       if (!fontSettings) return '';
       
       let classes = '';
       
-      // Font family
       if (fontSettings.style && fontFamilies[fontSettings.style as keyof typeof fontFamilies]) {
         classes += ` ${fontFamilies[fontSettings.style as keyof typeof fontFamilies]}`;
       }
       
-      // Global formatting
       if (fontSettings.bold) classes += ' font-bold';
       if (fontSettings.italic) classes += ' italic';
       if (fontSettings.underline) classes += ' underline';
       
-      // Alignment
       if (fontSettings.alignment) {
         switch (fontSettings.alignment) {
           case 'center': classes += ' text-center'; break;
@@ -938,7 +951,6 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
         }
       }
       
-      // Line height
       if (fontSettings.lineHeight) {
         switch (fontSettings.lineHeight) {
           case 'tight': classes += ' leading-tight'; break;
@@ -955,7 +967,6 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
     const fonts = styleOptions ? fontSizes[styleOptions.fontSize] : fontSizes.medium;
     const fontFamily = styleOptions ? fontFamilies[styleOptions.fontFamily] : fontFamilies.sans;
 
-    // ADD: Combine base classes with global font settings
     const baseClasses = `bg-white shadow-lg mx-auto ${className} ${fontFamily} ${getFontClasses()}`;
     const responsiveClasses = isMobileView
       ? "p-5 max-w-full w-full"
@@ -968,46 +979,45 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
         case 'summary':
           return data.personalInfo?.summary?.trim() !== '';
         case 'education':
-          return data.education?.some(edu => (edu.institution || edu.degree) && edu.visible) || false;
+          return data.education_entries?.some(edu => (edu.college || edu.degree) && edu.visible) || false;
         case 'workExperience':
-          return data.workExperience?.some(work => (work.designation || work.company) && work.visible) || false;
+          return data.work_experiences?.some(work => (work.designation || work.company_name) && work.visible) || false;
+        case 'internships':
+          return data.internships?.some(internship => (internship.designation || internship.company_name) && internship.visible) || false;
         case 'projects':
-          return data.projects?.some(project => (project.title || project.technologies) && project.visible) || false;
+          return data.work_experiences?.some(work => 
+            work.projects?.some(project => (project.project_name) && project.visible)
+          ) || false;
+        case 'academicProjects':
+          return data.academic_projects?.some(project => (project.project_name) && project.visible) || false;
         case 'pors':
-          return data.pors?.some(por => por.title && por.visible) || false;
+          return data.positions_of_responsibility?.some(por => por.role && por.visible) || false;
         case 'achievements':
           return data.achievements?.some(achievement => achievement.title && achievement.visible) || false;
+        case 'extraCurriculars':
+          return data.extra_curriculars?.some(activity => activity.activity && activity.visible) || false;
         case 'certifications':
-          return data.certifications?.some(cert => cert.name && cert.visible) || false;
+          return data.certifications?.some(cert => cert.certification && cert.visible) || false;
         case 'skills':
-          return data.skills?.technical || data.skills?.languages || data.skills?.frameworks || data.skills?.tools;
+          return data.skills?.skills?.length > 0 || data.skills?.languages?.length > 0;
+        case 'externalLinks':
+          return data.external_links?.length > 0;
         default:
           return false;
       }
     };
 
-    // ADD: Enhanced RenderEditableText component that applies field-specific formatting
-    const RenderEditableText = ({ content, className, onClick, editMode, onTextChange, section, field, index }: any) => {
-      const fieldKey = index !== undefined ? `${section}_${field}_${index}` : `${section}_${field}`;
-      const fieldStyles = getFieldFormatting ? getFieldFormatting(fieldKey) : {};
-      const globalStyles = getGlobalStyles();
-      
-      // Combine field-specific styles with global styles
-      const combinedStyles = { ...globalStyles, ...fieldStyles };
-      
-      return (
-        <span
-          className={className}
-          style={combinedStyles}
-          onClick={onClick}
-        >
-          {content}
-        </span>
-      );
+    const formatYearRange = (startYear: number | null, endYear: number | null) => {
+      if (!startYear && !endYear) return '';
+      if (startYear && !endYear) return `${startYear} - Present`;
+      if (!startYear && endYear) return `${endYear}`;
+      if (startYear === endYear) return `${startYear}`;
+      return `${startYear} - ${endYear}`;
     };
 
     return (
       <div className={`${baseClasses} ${responsiveClasses} relative`} ref={ref} style={getGlobalStyles()}>
+        {/* Personal Info Header */}
         <div className="text-center border-b border-gray-200 pb-3 mb-3">
           <RenderEditableText
             content={data.personalInfo?.name || "YOUR NAME"}
@@ -1022,14 +1032,13 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
             className={`flex flex-col items-center space-y-1 ${isMobileView ? 'text-xs' : 'sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 text-xs sm:text-sm'} ${colors.accent} cursor-pointer hover:opacity-75 transition-opacity`}
             onClick={() => onSectionClick && onSectionClick('personalInfo')}
           >
-            {data.personalInfo?.phone && <span>{data.personalInfo.phone}</span>}
-            {data.personalInfo?.phone && data.personalInfo?.email && <span className="hidden sm:inline">| </span>}
+            {data.personalInfo?.phone_number && <span>{data.personalInfo.phone_number}</span>}
+            {data.personalInfo?.phone_number && data.personalInfo?.email && <span className="hidden sm:inline">| </span>}
             {data.personalInfo?.email && <span className="break-all">{data.personalInfo.email}</span>}
-            {(data.personalInfo?.phone || data.personalInfo?.email) && data.personalInfo?.linkedin && <span className="hidden sm:inline">| </span>}
-            {data.personalInfo?.linkedin && <span>{data.personalInfo.linkedin}</span>}
           </div>
         </div>
 
+        {/* Summary */}
         {visibility.summary && hasContent('summary') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1050,6 +1059,7 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Education */}
         {visibility.education && hasContent('education') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1059,8 +1069,8 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
               Education
             </h2>
             <div className={isMobileView ? "space-y-1" : "space-y-2 sm:space-y-3"}>
-              {(data.education || [])
-                .filter(edu => (edu.institution || edu.degree) && edu.visible)
+              {(data.education_entries || [])
+                .filter(edu => (edu.college || edu.degree) && edu.visible)
                 .map((education, index) => (
                   <div
                     key={education.id}
@@ -1070,12 +1080,12 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                     <div className={`${isMobileView ? 'block space-y-0' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'}`}>
                       <div className="flex-1 min-w-0">
                         <RenderEditableText
-                          content={education.institution || "Institution"}
+                          content={education.college || "Institution"}
                           className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
                           section="education"
-                          field="institution"
+                          field="college"
                           index={index}
                         />
                         <RenderEditableText
@@ -1087,15 +1097,15 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                           field="degree"
                           index={index}
                         />
-                        {education.gpa && (
+                        {education.cgpa && (
                           <p className={`text-gray-600 mt-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
-                            GPA: {education.gpa}
+                            CGPA: {education.cgpa}
                           </p>
                         )}
                       </div>
-                      {education.year && (
+                      {(education.start_year || education.end_year) && (
                         <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs inline ml-2' : 'text-xs sm:text-sm block sm:ml-4'}`}>
-                          {education.year}
+                          {formatYearRange(education.start_year, education.end_year)}
                         </span>
                       )}
                     </div>
@@ -1105,6 +1115,7 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Work Experience */}
         {visibility.workExperience && hasContent('workExperience') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1114,8 +1125,8 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
               Work Experience
             </h2>
             <div className={isMobileView ? "space-y-2" : "space-y-3 sm:space-y-4"}>
-              {(data.workExperience || [])
-                .filter(work => (work.designation || work.company) && work.visible)
+              {(data.work_experiences || [])
+                .filter(work => (work.designation || work.company_name) && work.visible)
                 .map((experience, index) => (
                   <div
                     key={experience.id}
@@ -1134,98 +1145,110 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                           index={index}
                         />
                         <RenderEditableText
-                          content={experience.company || "Company"}
+                          content={experience.company_name || "Company"}
                           className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
                           section="workExperience"
-                          field="company"
+                          field="company_name"
                           index={index}
                         />
+                        {experience.location && (
+                          <p className={`text-gray-500 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {experience.location}
+                          </p>
+                        )}
                       </div>
-                      {experience.year && (
+                      {experience.duration && (
                         <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} ${isMobileView ? 'block' : 'sm:ml-4'}`}>
-                          {experience.year}
+                          {experience.duration}
                         </span>
                       )}
                     </div>
-                    {experience.bullets?.filter(bullet => bullet.trim()).length > 0 && (
-                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1`}>
-                        {experience.bullets.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
-                          <li key={bulletIndex} className="break-words">
-                            <RenderEditableText
-                              content={bullet}
-                              className="inline"
-                              editMode={editMode}
-                              onTextChange={onTextChange}
-                              section="workExperience"
-                              field={`bullet_${bulletIndex}`}
-                              index={index}
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                    {experience.designation_description && (
+                      <p className={`text-gray-700 mt-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                        {experience.designation_description}
+                      </p>
                     )}
+                    {/* Projects within Work Experience */}
+                    {experience.projects?.filter(project => project.visible).map((project) => (
+                      <div key={project.id} className="ml-4 mt-2">
+                        <h4 className="text-gray-800 font-medium">{project.project_name}</h4>
+                        <p className="text-gray-600 text-sm">{project.project_description}</p>
+                        {project.description_bullets?.filter(bullet => bullet.trim()).length > 0 && (
+                          <ul className="list-disc list-inside mt-1 text-gray-700 text-sm space-y-1">
+                            {project.description_bullets.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
+                              <li key={bulletIndex}>{bullet}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 ))}
             </div>
           </div>
         )}
 
-        {visibility.projects && hasContent('projects') && (
+        {/* Internships */}
+        {visibility.internships && hasContent('internships') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
               className={`font-semibold ${colors.primary} border-b ${colors.border} pb-1 mb-2 ${isMobileView ? fonts.mobile.section : fonts.section} cursor-pointer hover:opacity-75 transition-opacity`}
-              onClick={() => onSectionClick && onSectionClick('projects')}
+              onClick={() => onSectionClick && onSectionClick('internships')}
             >
-              Projects
+              Internships
             </h2>
             <div className={isMobileView ? "space-y-2" : "space-y-3 sm:space-y-4"}>
-              {(data.projects || [])
-                .filter(project => (project.title || project.technologies) && project.visible)
-                .map((project, index) => (
+              {(data.internships || [])
+                .filter(internship => (internship.designation || internship.company_name) && internship.visible)
+                .map((internship, index) => (
                   <div
-                    key={project.id}
+                    key={internship.id}
                     className="cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
-                    onClick={() => onSectionClick && onSectionClick('projects', index)}
+                    onClick={() => onSectionClick && onSectionClick('internships', index)}
                   >
                     <div className={`${isMobileView ? 'block space-y-1' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'} mb-1`}>
                       <div className="flex-1 min-w-0">
                         <RenderEditableText
-                          content={project.title || "Project Title"}
+                          content={internship.designation || "Position"}
                           className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
-                          section="projects"
-                          field="title"
+                          section="internships"
+                          field="designation"
                           index={index}
                         />
-                        {project.technologies && (
-                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
-                            Technologies: {project.technologies}
+                        <RenderEditableText
+                          content={internship.company_name || "Company"}
+                          className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
+                          editMode={editMode}
+                          onTextChange={onTextChange}
+                          section="internships"
+                          field="company_name"
+                          index={index}
+                        />
+                        {internship.location && (
+                          <p className={`text-gray-500 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {internship.location}
                           </p>
                         )}
                       </div>
-                      {project.year && (
+                      {internship.duration && (
                         <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} ${isMobileView ? 'block' : 'sm:ml-4'}`}>
-                          {project.year}
+                          {internship.duration}
                         </span>
                       )}
                     </div>
-                    {project.bullets?.filter(bullet => bullet.trim()).length > 0 && (
-                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1`}>
-                        {project.bullets?.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
-                          <li key={bulletIndex} className="break-words">
-                            <RenderEditableText
-                              content={bullet}
-                              className="inline"
-                              editMode={editMode}
-                              onTextChange={onTextChange}
-                              section="projects"
-                              field={`bullet_${bulletIndex}`}
-                              index={index}
-                            />
-                          </li>
+                    {internship.designation_description && (
+                      <p className={`text-gray-700 mt-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                        {internship.designation_description}
+                      </p>
+                    )}
+                    {internship.internship_work_description_bullets?.filter(bullet => bullet.trim()).length > 0 && (
+                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1 mt-1`}>
+                        {internship.internship_work_description_bullets.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
+                          <li key={bulletIndex} className="break-words">{bullet}</li>
                         ))}
                       </ul>
                     )}
@@ -1235,6 +1258,61 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Academic Projects */}
+        {visibility.academicProjects && hasContent('academicProjects') && (
+          <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
+            <h2
+              className={`font-semibold ${colors.primary} border-b ${colors.border} pb-1 mb-2 ${isMobileView ? fonts.mobile.section : fonts.section} cursor-pointer hover:opacity-75 transition-opacity`}
+              onClick={() => onSectionClick && onSectionClick('academicProjects')}
+            >
+              Academic Projects
+            </h2>
+            <div className={isMobileView ? "space-y-2" : "space-y-3 sm:space-y-4"}>
+              {(data.academic_projects || [])
+                .filter(project => project.project_name && project.visible)
+                .map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
+                    onClick={() => onSectionClick && onSectionClick('academicProjects', index)}
+                  >
+                    <div className={`${isMobileView ? 'block space-y-1' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'} mb-1`}>
+                      <div className="flex-1 min-w-0">
+                        <RenderEditableText
+                          content={project.project_name || "Project Title"}
+                          className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
+                          editMode={editMode}
+                          onTextChange={onTextChange}
+                          section="academicProjects"
+                          field="project_name"
+                          index={index}
+                        />
+                        {project.project_description && (
+                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {project.project_description}
+                          </p>
+                        )}
+                      </div>
+                      {project.duration && (
+                        <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} ${isMobileView ? 'block' : 'sm:ml-4'}`}>
+                          {project.duration}
+                        </span>
+                      )}
+                    </div>
+                    {project.description_bullets?.filter(bullet => bullet.trim()).length > 0 && (
+                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1`}>
+                        {project.description_bullets.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
+                          <li key={bulletIndex} className="break-words">{bullet}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Positions of Responsibility */}
         {visibility.pors && hasContent('pors') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1244,8 +1322,8 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
               Positions of Responsibility
             </h2>
             <div className={isMobileView ? "space-y-2" : "space-y-3 sm:space-y-4"}>
-              {(data.pors || [])
-                .filter(por => por.title && por.visible)
+              {(data.positions_of_responsibility || [])
+                .filter(por => por.role && por.visible)
                 .map((por, index) => (
                   <div
                     key={por.id}
@@ -1255,35 +1333,40 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                     <div className={`${isMobileView ? 'block space-y-1' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'} mb-1`}>
                       <div className="flex-1 min-w-0">
                         <RenderEditableText
-                          content={por.title}
+                          content={por.role || "Role"}
                           className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
                           section="pors"
-                          field="title"
+                          field="role"
                           index={index}
                         />
+                        {por.organization && (
+                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {por.organization}
+                          </p>
+                        )}
+                        {por.location && (
+                          <p className={`text-gray-500 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {por.location}
+                          </p>
+                        )}
                       </div>
-                      {por.year && (
+                      {por.duration && (
                         <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} ${isMobileView ? 'block' : 'sm:ml-4'}`}>
-                          {por.year}
+                          {por.duration}
                         </span>
                       )}
                     </div>
-                    {por.bullets?.filter(bullet => bullet.trim()).length > 0 && (
-                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1`}>
-                        {por.bullets?.filter(bullet => bullet.trim()).map((bullet, bulletIndex) => (
-                          <li key={bulletIndex} className="break-words">
-                            <RenderEditableText
-                              content={bullet}
-                              className="inline"
-                              editMode={editMode}
-                              onTextChange={onTextChange}
-                              section="pors"
-                              field={`bullet_${bulletIndex}`}
-                              index={index}
-                            />
-                          </li>
+                    {por.role_description && (
+                      <p className={`text-gray-700 mt-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                        {por.role_description}
+                      </p>
+                    )}
+                    {por.responsibilities?.filter(resp => resp.trim()).length > 0 && (
+                      <ul className={`list-disc list-inside text-gray-700 ${isMobileView ? 'ml-0 text-xs' : 'ml-0 sm:ml-4 text-xs sm:text-sm'} space-y-1 mt-1`}>
+                        {por.responsibilities.filter(resp => resp.trim()).map((responsibility, respIndex) => (
+                          <li key={respIndex} className="break-words">{responsibility}</li>
                         ))}
                       </ul>
                     )}
@@ -1293,6 +1376,7 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Achievements */}
         {visibility.achievements && hasContent('achievements') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1313,7 +1397,7 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                     <div className={`${isMobileView ? 'block space-y-1' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'} mb-1`}>
                       <div className="flex-1 min-w-0">
                         <RenderEditableText
-                          content={achievement.title}
+                          content={achievement.title || "Achievement"}
                           className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
@@ -1321,16 +1405,15 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                           field="title"
                           index={index}
                         />
+                        {achievement.awarding_body && (
+                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {achievement.awarding_body}
+                          </p>
+                        )}
                         {achievement.description && (
-                          <RenderEditableText
-                            content={achievement.description}
-                            className={`text-gray-700 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} mt-1`}
-                            editMode={editMode}
-                            onTextChange={onTextChange}
-                            section="achievements"
-                            field="description"
-                            index={index}
-                          />
+                          <p className={`text-gray-700 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} mt-1`}>
+                            {achievement.description}
+                          </p>
                         )}
                       </div>
                       {achievement.year && (
@@ -1345,6 +1428,59 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Extra Curriculars */}
+        {visibility.extraCurriculars && hasContent('extraCurriculars') && (
+          <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
+            <h2
+              className={`font-semibold ${colors.primary} border-b ${colors.border} pb-1 mb-2 ${isMobileView ? fonts.mobile.section : fonts.section} cursor-pointer hover:opacity-75 transition-opacity`}
+              onClick={() => onSectionClick && onSectionClick('extraCurriculars')}
+            >
+              Extra-Curricular Activities
+            </h2>
+            <div className={isMobileView ? "space-y-2" : "space-y-3 sm:space-y-4"}>
+              {(data.extra_curriculars || [])
+                .filter(activity => activity.activity && activity.visible)
+                .map((activity, index) => (
+                  <div
+                    key={activity.id}
+                    className="cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
+                    onClick={() => onSectionClick && onSectionClick('extraCurriculars', index)}
+                  >
+                    <div className={`${isMobileView ? 'block space-y-1' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'} mb-1`}>
+                      <div className="flex-1 min-w-0">
+                        <RenderEditableText
+                          content={activity.activity || "Activity"}
+                          className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
+                          editMode={editMode}
+                          onTextChange={onTextChange}
+                          section="extraCurriculars"
+                          field="activity"
+                          index={index}
+                        />
+                        {activity.position && (
+                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {activity.position}
+                          </p>
+                        )}
+                        {activity.description && (
+                          <p className={`text-gray-700 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} mt-1`}>
+                            {activity.description}
+                          </p>
+                        )}
+                      </div>
+                      {activity.year && (
+                        <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} ${isMobileView ? 'block' : 'sm:ml-4'}`}>
+                          {activity.year}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Certifications */}
         {visibility.certifications && hasContent('certifications') && (
           <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
@@ -1355,7 +1491,7 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
             </h2>
             <div className={isMobileView ? "space-y-1" : "space-y-2 sm:space-y-3"}>
               {(data.certifications || [])
-                .filter(cert => cert.name && cert.visible)
+                .filter(cert => cert.certification && cert.visible)
                 .map((certification, index) => (
                   <div
                     key={certification.id}
@@ -1365,29 +1501,28 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
                     <div className={`${isMobileView ? 'block space-y-0' : 'flex flex-col sm:flex-row sm:justify-between sm:items-start'}`}>
                       <div className="flex-1 min-w-0">
                         <RenderEditableText
-                          content={certification.name}
+                          content={certification.certification || "Certification"}
                           className={`font-semibold text-gray-900 ${isMobileView ? fonts.mobile.content : fonts.content}`}
                           editMode={editMode}
                           onTextChange={onTextChange}
                           section="certifications"
-                          field="name"
+                          field="certification"
                           index={index}
                         />
-                        {certification.issuer && (
-                          <RenderEditableText
-                            content={certification.issuer}
-                            className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
-                            editMode={editMode}
-                            onTextChange={onTextChange}
-                            section="certifications"
-                            field="issuer"
-                            index={index}
-                          />
+                        {certification.issuing_organization && (
+                          <p className={`text-gray-600 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                            {certification.issuing_organization}
+                          </p>
+                        )}
+                        {certification.description && (
+                          <p className={`text-gray-700 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'} mt-1`}>
+                            {certification.description}
+                          </p>
                         )}
                       </div>
-                      {certification.year && (
+                      {certification.time_of_certification && (
                         <span className={`text-gray-500 flex-shrink-0 ${isMobileView ? 'text-xs inline ml-2' : 'text-xs sm:text-sm block sm:ml-4'}`}>
-                          {certification.year}
+                          {certification.time_of_certification}
                         </span>
                       )}
                     </div>
@@ -1397,8 +1532,9 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
           </div>
         )}
 
+        {/* Skills */}
         {visibility.skills && hasContent('skills') && (
-          <div>
+          <div className={isMobileView ? "mb-3" : "mb-4 sm:mb-6"}>
             <h2
               className={`font-semibold ${colors.primary} border-b ${colors.border} pb-1 mb-2 ${isMobileView ? fonts.mobile.section : fonts.section} cursor-pointer hover:opacity-75 transition-opacity`}
               onClick={() => onSectionClick && onSectionClick('skills')}
@@ -1409,58 +1545,59 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
               className={`${isMobileView ? "space-y-1" : "space-y-2"} cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors`}
               onClick={() => onSectionClick && onSectionClick('skills')}
             >
-              {data.skills.technical && (
+              {data.skills?.skills?.length > 0 && (
                 <div>
                   <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Technical Skills:</p>
-                  <RenderEditableText
-                    content={data.skills.technical}
-                    className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
-                    editMode={editMode}
-                    onTextChange={onTextChange}
-                    section="skills"
-                    field="technical"
-                  />
+                  <p className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                    {data.skills.skills.join(', ')}
+                  </p>
                 </div>
               )}
-              {data.skills.languages && (
+              {data.skills?.languages?.length > 0 && (
                 <div>
-                  <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Programming Languages:</p>
-                  <RenderEditableText
-                    content={data.skills.languages}
-                    className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
-                    editMode={editMode}
-                    onTextChange={onTextChange}
-                    section="skills"
-                    field="languages"
-                  />
+                  <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Languages:</p>
+                  <p className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                    {data.skills.languages.join(', ')}
+                  </p>
                 </div>
               )}
-              {data.skills.frameworks && (
+              {data.skills?.interests?.length > 0 && (
                 <div>
-                  <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Frameworks & Libraries:</p>
-                  <RenderEditableText
-                    content={data.skills.frameworks}
-                    className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
-                    editMode={editMode}
-                    onTextChange={onTextChange}
-                    section="skills"
-                    field="frameworks"
-                  />
+                  <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Interests:</p>
+                  <p className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>
+                    {data.skills.interests.join(', ')}
+                  </p>
                 </div>
               )}
-              {data.skills.tools && (
-                <div>
-                  <p className={`font-medium text-gray-900 mb-1 ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}>Tools & Technologies:</p>
-                  <RenderEditableText
-                    content={data.skills.tools}
-                    className={`text-gray-700 break-words ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
-                    editMode={editMode}
-                    onTextChange={onTextChange}
-                    section="skills"
-                    field="tools"
-                  />
+            </div>
+          </div>
+        )}
+
+        {/* External Links */}
+        {visibility.externalLinks && hasContent('externalLinks') && (
+          <div>
+            <h2
+              className={`font-semibold ${colors.primary} border-b ${colors.border} pb-1 mb-2 ${isMobileView ? fonts.mobile.section : fonts.section} cursor-pointer hover:opacity-75 transition-opacity`}
+              onClick={() => onSectionClick && onSectionClick('externalLinks')}
+            >
+              Links
+            </h2>
+            <div
+              className={`${isMobileView ? "space-y-1" : "space-y-2"} cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors`}
+              onClick={() => onSectionClick && onSectionClick('externalLinks')}
+            >
+              {data.external_links?.map((link, index) => (
+                <div key={index}>
+                  <a 
+                    href={link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`text-blue-600 hover:text-blue-800 underline break-all ${isMobileView ? 'text-xs' : 'text-xs sm:text-sm'}`}
+                  >
+                    {link}
+                  </a>
                 </div>
-              )}
+              ))}
             </div>
           </div>
         )}
@@ -1470,144 +1607,3 @@ export const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
 );
 
 ResumePreview.displayName = "ResumePreview";
-
-// Test data with fixed PORs
-const testData: ResumeData = {
-  personalInfo: {
-    name: "John Doe",
-    phone: "+1 (555) 123-4567",
-    email: "john.doe@email.com",
-    linkedin: "linkedin.com/in/johndoe",
-    summary: "Experienced software developer with a passion for creating innovative solutions and leading development teams."
-  },
-  education: [
-    {
-      id: "1",
-      institution: "University of Technology",
-      degree: "Bachelor of Computer Science",
-      gpa: "3.8",
-      year: "2020-2024",
-      visible: true
-    }
-  ],
-  workExperience: [
-    {
-      id: "1",
-      designation: "Senior Software Developer",
-      company: "Tech Solutions Inc.",
-      year: "2022-Present",
-      bullets: [
-        "Led development of microservices architecture serving 1M+ users",
-        "Reduced system latency by 40% through optimization techniques",
-        "Mentored 5 junior developers and conducted code reviews"
-      ],
-      visible: true
-    }
-  ],
-  projects: [
-    {
-      id: "1",
-      title: "E-commerce Platform",
-      technologies: "React, Node.js, MongoDB, AWS",
-      year: "2023",
-      bullets: [
-        "Built scalable e-commerce platform with real-time inventory management",
-        "Implemented secure payment processing with Stripe integration"
-      ],
-      visible: true
-    }
-  ],
-  pors: [
-    {
-      id: "1",
-      title: "Team Lead - University Coding Club",
-      year: "2023-2024",
-      bullets: [
-        "Organized weekly coding workshops for 50+ students",
-        "Led team of 8 members in organizing hackathons"
-      ],
-      visible: true
-    }
-  ],
-  achievements: [
-    {
-      id: "1",
-      title: "Best Innovation Award",
-      year: "2023",
-      description: "Received recognition for developing an AI-powered code review tool",
-      visible: true
-    }
-  ],
-  certifications: [
-    {
-      id: "1",
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      visible: true
-    }
-  ],
-  skills: {
-    technical: "JavaScript, TypeScript, Python, Java, React, Node.js",
-    languages: "JavaScript, Python, Java, C++, SQL",
-    frameworks: "React, Express.js, Django, Spring Boot, Next.js",
-    tools: "Git, Docker, AWS, MongoDB, PostgreSQL, Jenkins"
-  }
-};
-
-// ResumePreviewPanel component
-export function ResumePreviewPanel({
-  data = testData,
-  sectionVisibility,
-  styleOptions = {
-    colorScheme: 'blue',
-    fontSize: 'medium',
-    fontFamily: 'sans',
-    layout: 'modern'
-  },
-  fontSettings,
-  fieldFormats,
-  getFieldFormatting,
-  onSectionClick = () => {},
-  editMode = false,
-  onTextChange = () => {}
-}: {
-  data?: ResumeData;
-  sectionVisibility?: SectionVisibility;
-  styleOptions?: StyleOptions;
-  fontSettings?: FontSettings;
-  fieldFormats?: Record<string, FieldFormat>;
-  getFieldFormatting?: (fieldKey: string) => FieldFormat;
-  onSectionClick?: (section: string, index?: number) => void;
-  editMode?: boolean;
-  onTextChange?: (section: string, field: string, value: string, index?: number) => void;
-}) {
-  return (
-    <div className="w-full bg-gray-100 p-6">
-      {editMode && (
-        <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-sm text-blue-800">
-            <strong>Edit Mode Active:</strong> Select any text to format it with bold, italic, underline, font size, alignment, spacing, and more using the floating toolbar.
-          </p>
-        </div>
-      )}
-      <div className="w-full max-w-4xl mx-auto">
-        <ResumePreview
-          data={data}
-          sectionVisibility={sectionVisibility}
-          styleOptions={styleOptions}
-          fontSettings={fontSettings}
-          fieldFormats={fieldFormats}
-          getFieldFormatting={getFieldFormatting}
-          onSectionClick={onSectionClick}
-          className="min-h-[600px] rounded-lg shadow-lg"
-          isMobileView={false}
-          editMode={editMode}
-          onTextChange={onTextChange}
-        />
-      </div>
-    </div>
-  );
-}
-
-export default ResumePreview;

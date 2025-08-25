@@ -36,32 +36,51 @@ const templates: Template[] = [
     icon: Briefcase,
     description: "Clean, professional design perfect for corporate roles",
     data: {
-      personalInfo: {
-        fullName: "Your Name",
-        jobTitle: "Professional Title",
-        email: "email@example.com",
-        phone: "(555) 123-4567",
-        summary: "Results-driven professional with proven track record in delivering exceptional outcomes."
-      },
-      workExperience: [
+      title: "Modern Professional Resume",
+      name: "Your Name",
+      email: "email@example.com",
+      phone_number: "(555) 123-4567",
+      summary: "Results-driven professional with proven track record in delivering exceptional outcomes.",
+      skills: ["Leadership", "Project Management", "Strategic Planning", "Communication", "Problem Solving"],
+      interests: ["Professional Development", "Innovation", "Team Building"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/yourname"],
+      education_entries: [
         {
-          company: "Company Name",
-          position: "Job Title",
-          startDate: "2020",
-          endDate: "Present",
-          description: "• Achieved significant results through strategic initiatives\n• Led cross-functional teams to deliver projects on time\n• Improved processes resulting in increased efficiency"
-        }
-      ],
-      education: [
-        {
-          institution: "University Name",
+          college: "University Name",
           degree: "Bachelor's Degree",
-          field: "Field of Study",
-          graduationYear: "2020"
+          start_year: 2016,
+          end_year: 2020,
+          cgpa: null
         }
       ],
-      technicalSkills: ["Leadership", "Project Management", "Strategic Planning"],
-      softSkills: ["Communication", "Problem Solving", "Team Collaboration"]
+      work_experiences: [
+        {
+          company_name: "Company Name",
+          company_description: "Leading technology company",
+          location: "New York, NY",
+          duration: "2020 - Present",
+          designation: "Senior Analyst",
+          designation_description: "Senior professional role",
+          projects: [
+            {
+              project_name: "Strategic Initiative",
+              project_description: "Led cross-functional project",
+              description_bullets: [
+                "Achieved significant results through strategic initiatives",
+                "Led cross-functional teams to deliver projects on time",
+                "Improved processes resulting in increased efficiency"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [],
+      achievements: [],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [],
+      academic_projects: []
     }
   },
   {
@@ -77,32 +96,58 @@ const templates: Template[] = [
     icon: Palette,
     description: "Bold, visually striking design for creative professionals",
     data: {
-      personalInfo: {
-        fullName: "Creative Professional",
-        jobTitle: "Senior Designer",
-        email: "designer@email.com",
-        phone: "(555) 987-6543",
-        summary: "Innovative designer with passion for creating compelling visual experiences that drive engagement."
-      },
-      workExperience: [
+      title: "Creative Designer Resume",
+      name: "Creative Professional",
+      email: "designer@email.com",
+      phone_number: "(555) 987-6543",
+      summary: "Innovative designer with passion for creating compelling visual experiences that drive engagement.",
+      skills: ["Adobe Creative Suite", "Sketch", "Figma", "UI/UX Design", "Creativity", "Visual Communication"],
+      interests: ["Digital Art", "Typography", "Brand Identity"],
+      languages: ["English (Native)", "Spanish (Conversational)"],
+      external_links: ["Portfolio: portfolio.com", "Dribbble: dribbble.com/designer"],
+      education_entries: [
         {
-          company: "Design Studio",
-          position: "Senior Designer",
-          startDate: "2019",
-          endDate: "Present",
-          description: "• Created award-winning designs for major brands\n• Managed creative projects from concept to completion\n• Collaborated with clients to bring visions to life"
-        }
-      ],
-      education: [
-        {
-          institution: "Art Institute",
+          college: "Art Institute",
           degree: "Bachelor of Fine Arts",
-          field: "Graphic Design",
-          graduationYear: "2019"
+          start_year: 2015,
+          end_year: 2019,
+          cgpa: null
         }
       ],
-      technicalSkills: ["Adobe Creative Suite", "Sketch", "Figma", "UI/UX Design"],
-      softSkills: ["Creativity", "Visual Communication", "Client Relations"]
+      work_experiences: [
+        {
+          company_name: "Design Studio",
+          company_description: "Creative design agency specializing in brand identity",
+          location: "Los Angeles, CA",
+          duration: "2019 - Present",
+          designation: "Senior Designer",
+          designation_description: "Lead designer for major client projects",
+          projects: [
+            {
+              project_name: "Brand Redesign Campaign",
+              project_description: "Complete brand overhaul for Fortune 500 client",
+              description_bullets: [
+                "Created award-winning designs for major brands",
+                "Managed creative projects from concept to completion",
+                "Collaborated with clients to bring visions to life"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [],
+      achievements: [
+        {
+          title: "Design Excellence Award",
+          awarding_body: "Creative Industry Association",
+          year: 2021,
+          description: "Recognized for outstanding creative work"
+        }
+      ],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [],
+      academic_projects: []
     }
   },
   {
@@ -118,32 +163,76 @@ const templates: Template[] = [
     icon: Code,
     description: "Modern tech-focused template highlighting technical expertise",
     data: {
-      personalInfo: {
-        fullName: "Software Engineer",
-        jobTitle: "Senior Full Stack Developer",
-        email: "dev@techcompany.com",
-        phone: "(555) 456-7890",
-        summary: "Experienced software engineer specializing in scalable web applications and modern development practices."
-      },
-      workExperience: [
+      title: "Senior Full Stack Developer Resume",
+      name: "Software Engineer",
+      email: "dev@techcompany.com",
+      phone_number: "(555) 456-7890",
+      summary: "Experienced software engineer specializing in scalable web applications and modern development practices.",
+      skills: ["React", "Node.js", "Python", "AWS", "Docker", "PostgreSQL", "Problem Solving", "Team Leadership"],
+      interests: ["Open Source", "Machine Learning", "Cloud Architecture"],
+      languages: ["English (Native)", "Python (Expert)", "JavaScript (Expert)"],
+      external_links: ["GitHub: github.com/developer", "LinkedIn: linkedin.com/in/developer"],
+      education_entries: [
         {
-          company: "Tech Company",
-          position: "Senior Full Stack Developer",
-          startDate: "2018",
-          endDate: "Present",
-          description: "• Built and maintained high-traffic web applications\n• Led technical architecture decisions for new projects\n• Mentored junior developers and conducted code reviews"
-        }
-      ],
-      education: [
-        {
-          institution: "Tech University",
+          college: "Tech University",
           degree: "Bachelor of Science",
-          field: "Computer Science",
-          graduationYear: "2018"
+          start_year: 2014,
+          end_year: 2018,
+          cgpa: 3.8
         }
       ],
-      technicalSkills: ["React", "Node.js", "Python", "AWS", "Docker", "PostgreSQL"],
-      softSkills: ["Problem Solving", "Team Leadership", "Agile Development"]
+      work_experiences: [
+        {
+          company_name: "Tech Company",
+          company_description: "Leading SaaS platform company",
+          location: "San Francisco, CA",
+          duration: "2018 - Present",
+          designation: "Senior Full Stack Developer",
+          designation_description: "Lead developer for core platform features",
+          projects: [
+            {
+              project_name: "Microservices Architecture Migration",
+              project_description: "Led migration from monolithic to microservices architecture",
+              description_bullets: [
+                "Built and maintained high-traffic web applications",
+                "Led technical architecture decisions for new projects",
+                "Mentored junior developers and conducted code reviews"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [],
+      achievements: [
+        {
+          title: "Technical Excellence Award",
+          awarding_body: "Tech Company",
+          year: 2020,
+          description: "Recognized for outstanding technical contributions"
+        }
+      ],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [
+        {
+          certification: "AWS Solutions Architect",
+          description: "Cloud architecture and deployment",
+          issuing_organization: "Amazon Web Services",
+          time_of_certification: 2019
+        }
+      ],
+      academic_projects: [
+        {
+          project_name: "Real-time Chat Application",
+          project_description: "Full-stack chat application with WebSocket support",
+          description_bullets: [
+            "Implemented real-time messaging with Socket.io",
+            "Built responsive UI with React and Redux",
+            "Deployed on AWS with Docker containers"
+          ],
+          duration: "3 months"
+        }
+      ]
     }
   },
   {
@@ -159,32 +248,72 @@ const templates: Template[] = [
     icon: Heart,
     description: "Professional template designed for healthcare workers",
     data: {
-      personalInfo: {
-        fullName: "Healthcare Professional",
-        jobTitle: "Registered Nurse",
-        email: "nurse@hospital.com",
-        phone: "(555) 234-5678",
-        summary: "Compassionate healthcare professional dedicated to providing exceptional patient care and improving health outcomes."
-      },
-      workExperience: [
+      title: "Healthcare Professional Resume",
+      name: "Healthcare Professional",
+      email: "nurse@hospital.com",
+      phone_number: "(555) 234-5678",
+      summary: "Compassionate healthcare professional dedicated to providing exceptional patient care and improving health outcomes.",
+      skills: ["Patient Care", "Medical Procedures", "Electronic Health Records", "Compassion", "Communication", "Critical Thinking"],
+      interests: ["Patient Advocacy", "Medical Research", "Community Health"],
+      languages: ["English (Native)", "Spanish (Conversational)"],
+      external_links: ["LinkedIn: linkedin.com/in/nurse"],
+      education_entries: [
         {
-          company: "City Hospital",
-          position: "Registered Nurse",
-          startDate: "2020",
-          endDate: "Present",
-          description: "• Provided direct patient care in fast-paced environment\n• Collaborated with medical teams to develop care plans\n• Educated patients and families on health management"
-        }
-      ],
-      education: [
-        {
-          institution: "Nursing School",
+          college: "Nursing School",
           degree: "Bachelor of Science in Nursing",
-          field: "Nursing",
-          graduationYear: "2020"
+          start_year: 2016,
+          end_year: 2020,
+          cgpa: 3.7
         }
       ],
-      technicalSkills: ["Patient Care", "Medical Procedures", "Electronic Health Records"],
-      softSkills: ["Compassion", "Communication", "Critical Thinking"]
+      work_experiences: [
+        {
+          company_name: "City Hospital",
+          company_description: "Major metropolitan hospital",
+          location: "Chicago, IL",
+          duration: "2020 - Present",
+          designation: "Registered Nurse",
+          designation_description: "ICU nursing specialist",
+          projects: [
+            {
+              project_name: "Patient Care Excellence Initiative",
+              project_description: "Led quality improvement in patient care",
+              description_bullets: [
+                "Provided direct patient care in fast-paced environment",
+                "Collaborated with medical teams to develop care plans",
+                "Educated patients and families on health management"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [
+        {
+          company_name: "Regional Medical Center",
+          company_description: "Teaching hospital",
+          location: "Chicago, IL",
+          designation: "Nursing Student",
+          designation_description: "Clinical rotation",
+          duration: "2019 - 2020",
+          internship_work_description_bullets: [
+            "Completed clinical rotations in multiple departments",
+            "Assisted with patient care under supervision",
+            "Gained experience in medical procedures"
+          ]
+        }
+      ],
+      achievements: [],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [
+        {
+          certification: "RN License",
+          description: "Registered Nurse License",
+          issuing_organization: "Illinois Board of Nursing",
+          time_of_certification: 2020
+        }
+      ],
+      academic_projects: []
     }
   },
   {
@@ -200,155 +329,58 @@ const templates: Template[] = [
     icon: TrendingUp,
     description: "Dynamic template perfect for marketing and digital professionals",
     data: {
-      personalInfo: {
-        fullName: "Marketing Expert",
-        jobTitle: "Digital Marketing Manager",
-        email: "marketing@company.com",
-        phone: "(555) 345-6789",
-        summary: "Results-driven marketing professional with expertise in digital campaigns and brand development."
-      },
-      workExperience: [
+      title: "Digital Marketing Manager Resume",
+      name: "Marketing Expert",
+      email: "marketing@company.com",
+      phone_number: "(555) 345-6789",
+      summary: "Results-driven marketing professional with expertise in digital campaigns and brand development.",
+      skills: ["Google Analytics", "Social Media Marketing", "SEO/SEM", "Content Strategy", "Creativity", "Data Analysis"],
+      interests: ["Digital Trends", "Content Creation", "Brand Strategy"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/marketer", "Portfolio: marketing-portfolio.com"],
+      education_entries: [
         {
-          company: "Marketing Agency",
-          position: "Digital Marketing Manager",
-          startDate: "2019",
-          endDate: "Present",
-          description: "• Developed and executed successful digital marketing campaigns\n• Increased brand awareness by 150% through strategic initiatives\n• Managed social media presence across multiple platforms"
-        }
-      ],
-      education: [
-        {
-          institution: "Business School",
+          college: "Business School",
           degree: "Bachelor of Business Administration",
-          field: "Marketing",
-          graduationYear: "2019"
+          start_year: 2015,
+          end_year: 2019,
+          cgpa: null
         }
       ],
-      technicalSkills: ["Google Analytics", "Social Media Marketing", "SEO/SEM", "Content Strategy"],
-      softSkills: ["Creativity", "Data Analysis", "Strategic Thinking"]
-    }
-  },
-  {
-    id: "education-teacher",
-    name: "Education Professional",
-    category: "Education",
-    industry: ["Education", "Teaching", "Academia"],
-    level: "mid",
-    rating: 4.8,
-    downloads: 5432,
-    preview: "",
-    color: "from-indigo-500 to-purple-500",
-    icon: GraduationCap,
-    description: "Academic-focused template for educators and administrators",
-    data: {
-      personalInfo: {
-        fullName: "Educator",
-        jobTitle: "High School Teacher",
-        email: "teacher@school.edu",
-        phone: "(555) 456-7890",
-        summary: "Passionate educator committed to fostering student growth and creating engaging learning environments."
-      },
-      workExperience: [
+      work_experiences: [
         {
-          company: "Local High School",
-          position: "Mathematics Teacher",
-          startDate: "2018",
-          endDate: "Present",
-          description: "• Taught advanced mathematics to high school students\n• Developed innovative curriculum and teaching methods\n• Mentored students and supported their academic growth"
+          company_name: "Marketing Agency",
+          company_description: "Full-service digital marketing agency",
+          location: "Austin, TX",
+          duration: "2019 - Present",
+          designation: "Digital Marketing Manager",
+          designation_description: "Lead marketing campaigns for clients",
+          projects: [
+            {
+              project_name: "Brand Awareness Campaign",
+              project_description: "Multi-channel marketing campaign",
+              description_bullets: [
+                "Developed and executed successful digital marketing campaigns",
+                "Increased brand awareness by 150% through strategic initiatives",
+                "Managed social media presence across multiple platforms"
+              ]
+            }
+          ]
         }
       ],
-      education: [
+      internships: [],
+      achievements: [],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [
         {
-          institution: "Education University",
-          degree: "Master of Education",
-          field: "Mathematics Education",
-          graduationYear: "2018"
+          certification: "Google Analytics Certified",
+          description: "Web analytics certification",
+          issuing_organization: "Google",
+          time_of_certification: 2020
         }
       ],
-      technicalSkills: ["Curriculum Development", "Educational Technology", "Assessment Design"],
-      softSkills: ["Patience", "Communication", "Adaptability"]
-    }
-  },
-  {
-    id: "finance-analyst",
-    name: "Finance Analyst",
-    category: "Finance",
-    industry: ["Finance", "Banking", "Investment"],
-    level: "senior",
-    rating: 4.7,
-    downloads: 7654,
-    preview: "",
-    color: "from-blue-600 to-indigo-600",
-    icon: Calculator,
-    description: "Professional template tailored for finance professionals",
-    data: {
-      personalInfo: {
-        fullName: "Finance Professional",
-        jobTitle: "Senior Financial Analyst",
-        email: "analyst@finance.com",
-        phone: "(555) 567-8901",
-        summary: "Detail-oriented financial analyst with expertise in investment analysis and risk management."
-      },
-      workExperience: [
-        {
-          company: "Investment Firm",
-          position: "Senior Financial Analyst",
-          startDate: "2017",
-          endDate: "Present",
-          description: "• Conducted comprehensive financial analysis and valuation models\n• Prepared investment recommendations for portfolio managers\n• Monitored market trends and performed risk assessments"
-        }
-      ],
-      education: [
-        {
-          institution: "Business University",
-          degree: "Master of Business Administration",
-          field: "Finance",
-          graduationYear: "2017"
-        }
-      ],
-      technicalSkills: ["Financial Modeling", "Excel", "Bloomberg Terminal", "Risk Analysis"],
-      softSkills: ["Analytical Thinking", "Attention to Detail", "Communication"]
-    }
-  },
-  {
-    id: "sales-executive",
-    name: "Sales Executive",
-    category: "Sales",
-    industry: ["Sales", "Business Development", "Retail"],
-    level: "senior",
-    rating: 4.5,
-    downloads: 8765,
-    preview: "",
-    color: "from-emerald-500 to-green-600",
-    icon: Users,
-    description: "Results-focused template for sales and business development",
-    data: {
-      personalInfo: {
-        fullName: "Sales Professional",
-        jobTitle: "Senior Sales Executive",
-        email: "sales@company.com",
-        phone: "(555) 678-9012",
-        summary: "High-performing sales executive with proven track record of exceeding targets and building client relationships."
-      },
-      workExperience: [
-        {
-          company: "Sales Corporation",
-          position: "Senior Sales Executive",
-          startDate: "2019",
-          endDate: "Present",
-          description: "• Exceeded annual sales targets by 125% for three consecutive years\n• Built and maintained relationships with key enterprise clients\n• Developed new business opportunities and expanded market reach"
-        }
-      ],
-      education: [
-        {
-          institution: "Business College",
-          degree: "Bachelor of Business",
-          field: "Sales and Marketing",
-          graduationYear: "2019"
-        }
-      ],
-      technicalSkills: ["CRM Software", "Sales Analytics", "Negotiation", "Lead Generation"],
-      softSkills: ["Persuasion", "Relationship Building", "Resilience"]
+      academic_projects: []
     }
   },
   {
@@ -364,32 +396,218 @@ const templates: Template[] = [
     icon: BookOpen,
     description: "Perfect template for recent graduates and entry-level positions",
     data: {
-      personalInfo: {
-        fullName: "Recent Graduate",
-        jobTitle: "Entry Level Professional",
-        email: "graduate@email.com",
-        phone: "(555) 789-0123",
-        summary: "Recent graduate with strong academic background and passion for starting a successful career."
-      },
-      workExperience: [
+      title: "Recent Graduate Resume",
+      name: "Recent Graduate",
+      email: "graduate@email.com",
+      phone_number: "(555) 789-0123",
+      summary: "Recent graduate with strong academic background and passion for starting a successful career.",
+      skills: ["Microsoft Office", "Social Media", "Research", "Data Entry", "Communication", "Team Collaboration"],
+      interests: ["Professional Development", "Technology", "Volunteering"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/graduate"],
+      education_entries: [
         {
-          company: "Internship Company",
-          position: "Marketing Intern",
-          startDate: "2023",
-          endDate: "2023",
-          description: "• Assisted with social media campaigns and content creation\n• Conducted market research and competitive analysis\n• Supported team with administrative tasks and project coordination"
-        }
-      ],
-      education: [
-        {
-          institution: "University",
+          college: "University",
           degree: "Bachelor of Arts",
-          field: "Business Administration",
-          graduationYear: "2024"
+          start_year: 2020,
+          end_year: 2024,
+          cgpa: 3.5
         }
       ],
-      technicalSkills: ["Microsoft Office", "Social Media", "Research", "Data Entry"],
-      softSkills: ["Eager to Learn", "Team Player", "Strong Work Ethic"]
+      work_experiences: [],
+      internships: [
+        {
+          company_name: "Internship Company",
+          company_description: "Marketing agency",
+          location: "Boston, MA",
+          designation: "Marketing Intern",
+          designation_description: "Summer internship program",
+          duration: "Summer 2023",
+          internship_work_description_bullets: [
+            "Assisted with social media campaigns and content creation",
+            "Conducted market research and competitive analysis",
+            "Supported team with administrative tasks and project coordination"
+          ]
+        }
+      ],
+      achievements: [
+        {
+          title: "Dean's List",
+          awarding_body: "University",
+          year: 2023,
+          description: "Academic excellence recognition"
+        }
+      ],
+      positions_of_responsibility: [
+        {
+          role: "Student Body Representative",
+          role_description: "Elected representative for student affairs",
+          organization: "University Student Government",
+          organization_description: "Student governing body",
+          location: "University Campus",
+          duration: "2022 - 2024",
+          responsibilities: [
+            "Represented student interests in university meetings",
+            "Organized student events and activities",
+            "Facilitated communication between students and administration"
+          ]
+        }
+      ],
+      extra_curriculars: [
+        {
+          activity: "Debate Club",
+          position: "Secretary",
+          description: "Organized club meetings and competitions",
+          year: 2022
+        }
+      ],
+      certifications: [],
+      academic_projects: [
+        {
+          project_name: "Senior Capstone Project",
+          project_description: "Independent research project",
+          description_bullets: [
+            "Conducted comprehensive research on market trends",
+            "Presented findings to faculty committee",
+            "Received honors recognition for project"
+          ],
+          duration: "Fall 2023"
+        }
+      ]
+    }
+  },
+  {
+    id: "finance-analyst",
+    name: "Finance Analyst",
+    category: "Finance",
+    industry: ["Finance", "Banking", "Investment"],
+    level: "senior",
+    rating: 4.7,
+    downloads: 7654,
+    preview: "",
+    color: "from-blue-600 to-indigo-600",
+    icon: Calculator,
+    description: "Professional template tailored for finance professionals",
+    data: {
+      title: "Senior Financial Analyst Resume",
+      name: "Finance Professional",
+      email: "analyst@finance.com",
+      phone_number: "(555) 567-8901",
+      summary: "Detail-oriented financial analyst with expertise in investment analysis and risk management.",
+      skills: ["Financial Modeling", "Excel", "Bloomberg Terminal", "Risk Analysis", "Analytical Thinking", "Communication"],
+      interests: ["Market Analysis", "Investment Strategy", "Financial Innovation"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/analyst"],
+      education_entries: [
+        {
+          college: "Business University",
+          degree: "Master of Business Administration",
+          start_year: 2015,
+          end_year: 2017,
+          cgpa: null
+        }
+      ],
+      work_experiences: [
+        {
+          company_name: "Investment Firm",
+          company_description: "Leading investment management company",
+          location: "New York, NY",
+          duration: "2017 - Present",
+          designation: "Senior Financial Analyst",
+          designation_description: "Investment analysis and portfolio management",
+          projects: [
+            {
+              project_name: "Portfolio Optimization Model",
+              project_description: "Developed comprehensive financial models",
+              description_bullets: [
+                "Conducted comprehensive financial analysis and valuation models",
+                "Prepared investment recommendations for portfolio managers",
+                "Monitored market trends and performed risk assessments"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [],
+      achievements: [],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [
+        {
+          certification: "CFA Charter",
+          description: "Chartered Financial Analyst",
+          issuing_organization: "CFA Institute",
+          time_of_certification: 2018
+        }
+      ],
+      academic_projects: []
+    }
+  },
+  {
+    id: "sales-executive",
+    name: "Sales Executive",
+    category: "Sales",
+    industry: ["Sales", "Business Development", "Retail"],
+    level: "senior",
+    rating: 4.5,
+    downloads: 8765,
+    preview: "",
+    color: "from-emerald-500 to-green-600",
+    icon: Users,
+    description: "Results-focused template for sales and business development",
+    data: {
+      title: "Senior Sales Executive Resume",
+      name: "Sales Professional",
+      email: "sales@company.com",
+      phone_number: "(555) 678-9012",
+      summary: "High-performing sales executive with proven track record of exceeding targets and building client relationships.",
+      skills: ["CRM Software", "Sales Analytics", "Negotiation", "Lead Generation", "Relationship Building", "Communication"],
+      interests: ["Business Development", "Client Relations", "Sales Strategy"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/sales"],
+      education_entries: [
+        {
+          college: "Business College",
+          degree: "Bachelor of Business",
+          start_year: 2015,
+          end_year: 2019,
+          cgpa: null
+        }
+      ],
+      work_experiences: [
+        {
+          company_name: "Sales Corporation",
+          company_description: "B2B software sales company",
+          location: "Denver, CO",
+          duration: "2019 - Present",
+          designation: "Senior Sales Executive",
+          designation_description: "Enterprise sales and account management",
+          projects: [
+            {
+              project_name: "Enterprise Client Expansion",
+              project_description: "Led major client acquisition initiative",
+              description_bullets: [
+                "Exceeded annual sales targets by 125% for three consecutive years",
+                "Built and maintained relationships with key enterprise clients",
+                "Developed new business opportunities and expanded market reach"
+              ]
+            }
+          ]
+        }
+      ],
+      internships: [],
+      achievements: [
+        {
+          title: "Top Performer Award",
+          awarding_body: "Sales Corporation",
+          year: 2021,
+          description: "Highest sales performance company-wide"
+        }
+      ],
+      positions_of_responsibility: [],
+      extra_curriculars: [],
+      certifications: [],
+      academic_projects: []
     }
   },
   {
@@ -405,237 +623,72 @@ const templates: Template[] = [
     icon: Briefcase,
     description: "Premium template for C-level executives and senior leadership",
     data: {
-      personalInfo: {
-        fullName: "Executive Leader",
-        jobTitle: "Chief Executive Officer",
-        email: "ceo@company.com",
-        phone: "(555) 890-1234",
-        summary: "Visionary executive leader with 15+ years of experience driving organizational growth and transformation."
-      },
-      workExperience: [
+      title: "Chief Executive Officer Resume",
+      name: "Executive Leader",
+      email: "ceo@company.com",
+      phone_number: "(555) 890-1234",
+      summary: "Visionary executive leader with 15+ years of experience driving organizational growth and transformation.",
+      skills: ["Strategic Planning", "P&L Management", "Board Relations", "M&A", "Leadership", "Executive Presence"],
+      interests: ["Strategic Innovation", "Organizational Development", "Industry Leadership"],
+      languages: ["English (Native)"],
+      external_links: ["LinkedIn: linkedin.com/in/ceo", "Company: company.com"],
+      education_entries: [
         {
-          company: "Fortune 500 Company",
-          position: "Chief Executive Officer",
-          startDate: "2020",
-          endDate: "Present",
-          description: "• Led company through successful digital transformation initiative\n• Increased revenue by 200% over four-year period\n• Built high-performing leadership team and organizational culture"
-        }
-      ],
-      education: [
-        {
-          institution: "Harvard Business School",
+          college: "Harvard Business School",
           degree: "Master of Business Administration",
-          field: "Executive Leadership",
-          graduationYear: "2008"
+          start_year: 2006,
+          end_year: 2008,
+          cgpa: null
         }
       ],
-      technicalSkills: ["Strategic Planning", "P&L Management", "Board Relations", "M&A"],
-      softSkills: ["Visionary Leadership", "Executive Presence", "Decision Making"]
-    }
-  },
-  {
-    id: "international-global",
-    name: "Global Professional",
-    category: "International",
-    industry: ["International", "Consulting", "NGO"],
-    level: "senior",
-    rating: 4.6,
-    downloads: 4567,
-    preview: "",
-    color: "from-teal-500 to-cyan-500",
-    icon: Globe,
-    description: "Sophisticated template for international and multicultural professionals",
-    data: {
-      personalInfo: {
-        fullName: "Global Professional",
-        jobTitle: "International Relations Manager",
-        email: "global@international.org",
-        phone: "(555) 901-2345",
-        summary: "Internationally experienced professional with expertise in cross-cultural communication and global operations."
-      },
-      workExperience: [
+      work_experiences: [
         {
-          company: "International Organization",
-          position: "International Relations Manager",
-          startDate: "2018",
-          endDate: "Present",
-          description: "• Managed partnerships across 15+ countries and cultures\n• Coordinated international projects and initiatives\n• Facilitated cross-border collaborations and communications"
+          company_name: "Fortune 500 Company",
+          company_description: "Global technology and consulting company",
+          location: "New York, NY",
+          duration: "2020 - Present",
+          designation: "Chief Executive Officer",
+          designation_description: "Executive leadership and strategic direction",
+          projects: [
+            {
+              project_name: "Digital Transformation Initiative",
+              project_description: "Company-wide digital modernization",
+              description_bullets: [
+                "Led company through successful digital transformation initiative",
+                "Increased revenue by 200% over four-year period",
+                "Built high-performing leadership team and organizational culture"
+              ]
+            }
+          ]
         }
       ],
-      education: [
+      internships: [],
+      achievements: [
         {
-          institution: "International University",
-          degree: "Master of International Relations",
-          field: "Global Studies",
-          graduationYear: "2018"
+          title: "CEO of the Year",
+          awarding_body: "Industry Leadership Council",
+          year: 2022,
+          description: "Recognition for outstanding executive leadership"
         }
       ],
-      technicalSkills: ["Cross-Cultural Communication", "Project Management", "Languages", "International Law"],
-      softSkills: ["Cultural Sensitivity", "Diplomatic Relations", "Global Perspective"]
-    }
-  },
-  {
-    id: "engineering-technical",
-    name: "Engineering Professional",
-    category: "Engineering",
-    industry: ["Engineering", "Manufacturing", "Construction"],
-    level: "senior",
-    rating: 4.8,
-    downloads: 6789,
-    preview: "",
-    color: "from-amber-500 to-orange-500",
-    icon: Wrench,
-    description: "Technical template designed for engineers and technical professionals",
-    data: {
-      personalInfo: {
-        fullName: "Engineering Professional",
-        jobTitle: "Senior Mechanical Engineer",
-        email: "engineer@company.com",
-        phone: "(555) 012-3456",
-        summary: "Experienced mechanical engineer with expertise in product design and manufacturing optimization."
-      },
-      workExperience: [
+      positions_of_responsibility: [
         {
-          company: "Engineering Firm",
-          position: "Senior Mechanical Engineer",
-          startDate: "2017",
-          endDate: "Present",
-          description: "• Designed and developed innovative mechanical systems\n• Led product development from concept through manufacturing\n• Improved efficiency and reduced costs through design optimization"
+          role: "Board Member",
+          role_description: "Strategic advisor and board member",
+          organization: "Tech Innovation Council",
+          organization_description: "Industry advisory board",
+          location: "Silicon Valley, CA",
+          duration: "2018 - Present",
+          responsibilities: [
+            "Provide strategic guidance on industry trends",
+            "Mentor emerging technology companies",
+            "Advise on investment and growth strategies"
+          ]
         }
       ],
-      education: [
-        {
-          institution: "Engineering University",
-          degree: "Bachelor of Science",
-          field: "Mechanical Engineering",
-          graduationYear: "2017"
-        }
-      ],
-      technicalSkills: ["CAD Software", "Product Design", "Manufacturing", "Quality Control"],
-      softSkills: ["Problem Solving", "Technical Communication", "Project Management"]
-    }
-  },
-  {
-    id: "legal-attorney",
-    name: "Legal Professional",
-    category: "Legal",
-    industry: ["Legal", "Law", "Compliance"],
-    level: "senior",
-    rating: 4.7,
-    downloads: 3890,
-    preview: "",
-    color: "from-red-600 to-rose-600",
-    icon: Gavel,
-    description: "Professional template for lawyers and legal professionals",
-    data: {
-      personalInfo: {
-        fullName: "Legal Professional",
-        jobTitle: "Senior Associate Attorney",
-        email: "attorney@lawfirm.com",
-        phone: "(555) 123-4567",
-        summary: "Experienced attorney specializing in corporate law with a track record of successful case outcomes."
-      },
-      workExperience: [
-        {
-          company: "Law Firm",
-          position: "Senior Associate Attorney",
-          startDate: "2018",
-          endDate: "Present",
-          description: "• Represented corporate clients in complex litigation matters\n• Drafted and negotiated commercial contracts and agreements\n• Provided legal counsel on regulatory compliance issues"
-        }
-      ],
-      education: [
-        {
-          institution: "Law School",
-          degree: "Juris Doctor",
-          field: "Corporate Law",
-          graduationYear: "2018"
-        }
-      ],
-      technicalSkills: ["Legal Research", "Contract Negotiation", "Litigation", "Compliance"],
-      softSkills: ["Analytical Thinking", "Persuasive Communication", "Client Relations"]
-    }
-  },
-  {
-    id: "media-journalist",
-    name: "Media Professional",
-    category: "Media",
-    industry: ["Media", "Journalism", "Communications"],
-    level: "mid",
-    rating: 4.5,
-    downloads: 5432,
-    preview: "",
-    color: "from-violet-500 to-purple-600",
-    icon: Camera,
-    description: "Creative template for media professionals and journalists",
-    data: {
-      personalInfo: {
-        fullName: "Media Professional",
-        jobTitle: "Senior Journalist",
-        email: "journalist@news.com",
-        phone: "(555) 234-5678",
-        summary: "Award-winning journalist with expertise in investigative reporting and multimedia storytelling."
-      },
-      workExperience: [
-        {
-          company: "News Organization",
-          position: "Senior Journalist",
-          startDate: "2019",
-          endDate: "Present",
-          description: "• Investigated and reported on major news stories\n• Produced multimedia content across digital platforms\n• Conducted interviews with high-profile subjects"
-        }
-      ],
-      education: [
-        {
-          institution: "Journalism School",
-          degree: "Bachelor of Arts",
-          field: "Journalism",
-          graduationYear: "2019"
-        }
-      ],
-      technicalSkills: ["Investigative Reporting", "Digital Media", "Video Production", "Social Media"],
-      softSkills: ["Storytelling", "Research Skills", "Communication"]
-    }
-  },
-  {
-    id: "startup-entrepreneur",
-    name: "Startup Founder",
-    category: "Entrepreneurship",
-    industry: ["Startup", "Technology", "Innovation"],
-    level: "executive",
-    rating: 4.8,
-    downloads: 7890,
-    preview: "",
-    color: "from-pink-500 to-rose-500",
-    icon: TrendingUp,
-    description: "Bold template for entrepreneurs and startup founders",
-    data: {
-      personalInfo: {
-        fullName: "Startup Founder",
-        jobTitle: "CEO & Founder",
-        email: "founder@startup.com",
-        phone: "(555) 345-6789",
-        summary: "Serial entrepreneur with track record of building successful startups from concept to exit."
-      },
-      workExperience: [
-        {
-          company: "Tech Startup",
-          position: "CEO & Founder",
-          startDate: "2020",
-          endDate: "Present",
-          description: "• Founded and scaled tech startup to $10M+ revenue\n• Raised $5M in Series A funding from top-tier VCs\n• Built high-performing team of 50+ employees"
-        }
-      ],
-      education: [
-        {
-          institution: "Entrepreneurship Program",
-          degree: "Master of Business Administration",
-          field: "Entrepreneurship",
-          graduationYear: "2020"
-        }
-      ],
-      technicalSkills: ["Business Development", "Fundraising", "Product Strategy", "Team Building"],
-      softSkills: ["Vision", "Leadership", "Risk Taking", "Innovation"]
+      extra_curriculars: [],
+      certifications: [],
+      academic_projects: []
     }
   }
 ];
@@ -652,11 +705,11 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
               <div className="w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-white text-2xl font-bold">SW</span>
               </div>
-              <h1 className="text-4xl font-bold text-purple-800 mb-2">{template.data.personalInfo.fullName}</h1>
-              <h2 className="text-2xl text-purple-600 mb-4">{template.data.personalInfo.jobTitle}</h2>
+              <h1 className="text-4xl font-bold text-purple-800 mb-2">{template.data.name}</h1>
+              <h2 className="text-2xl text-purple-600 mb-4">{template.data.work_experiences[0]?.designation || "Professional"}</h2>
               <div className="flex justify-center space-x-6 text-purple-700">
-                <span>{template.data.personalInfo.email}</span>
-                <span>{template.data.personalInfo.phone}</span>
+                <span>{template.data.email}</span>
+                <span>{template.data.phone_number}</span>
               </div>
             </div>
             
@@ -667,10 +720,12 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 <div className="bg-white p-4 rounded-lg shadow-sm">
                   <h3 className="text-lg font-bold text-purple-700 mb-3 border-b border-purple-200 pb-2">CONTACT</h3>
                   <div className="space-y-2 text-sm text-gray-700">
-                    <div>📧 {template.data.personalInfo.email}</div>
-                    <div>📱 {template.data.personalInfo.phone}</div>
-                    <div>📍 City, State</div>
-                    <div>🌐 portfolio.com</div>
+                    <div>{template.data.email}</div>
+                    <div>{template.data.phone_number}</div>
+                    <div>{template.data.work_experiences[0]?.location || "City, State"}</div>
+                    {template.data.external_links.map((link: string, index: number) => (
+                      <div key={index}>{link}</div>
+                    ))}
                   </div>
                 </div>
                 
@@ -679,18 +734,18 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                   <h3 className="text-lg font-bold text-pink-700 mb-3 border-b border-pink-200 pb-2">SKILLS</h3>
                   <div className="space-y-3">
                     <div>
-                      <h4 className="font-semibold text-purple-600 text-sm mb-2">Technical</h4>
+                      <h4 className="font-semibold text-purple-600 text-sm mb-2">Skills</h4>
                       <div className="flex flex-wrap gap-1">
-                        {template.data.technicalSkills.map((skill: string, index: number) => (
+                        {template.data.skills.map((skill: string, index: number) => (
                           <span key={index} className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">{skill}</span>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-pink-600 text-sm mb-2">Soft Skills</h4>
+                      <h4 className="font-semibold text-pink-600 text-sm mb-2">Languages</h4>
                       <div className="flex flex-wrap gap-1">
-                        {template.data.softSkills.map((skill: string, index: number) => (
-                          <span key={index} className="bg-pink-100 text-pink-700 px-2 py-1 rounded text-xs">{skill}</span>
+                        {template.data.languages.map((lang: string, index: number) => (
+                          <span key={index} className="bg-pink-100 text-pink-700 px-2 py-1 rounded text-xs">{lang}</span>
                         ))}
                       </div>
                     </div>
@@ -703,18 +758,24 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 {/* Summary */}
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h3 className="text-xl font-bold text-purple-800 mb-4">PROFESSIONAL SUMMARY</h3>
-                  <p className="text-gray-700 leading-relaxed">{template.data.personalInfo.summary}</p>
+                  <p className="text-gray-700 leading-relaxed">{template.data.summary}</p>
                 </div>
                 
                 {/* Experience */}
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h3 className="text-xl font-bold text-purple-800 mb-4">EXPERIENCE</h3>
-                  {template.data.workExperience.map((exp: any, index: number) => (
+                  {template.data.work_experiences.map((exp: any, index: number) => (
                     <div key={index} className="mb-4 last:mb-0">
-                      <h4 className="text-lg font-semibold text-purple-700">{exp.position}</h4>
-                      <h5 className="text-md font-medium text-pink-600 mb-1">{exp.company}</h5>
-                      <p className="text-sm text-gray-600 mb-2">{exp.startDate} - {exp.endDate}</p>
-                      <div className="text-sm text-gray-700 whitespace-pre-line">{exp.description}</div>
+                      <h4 className="text-lg font-semibold text-purple-700">{exp.designation}</h4>
+                      <h5 className="text-md font-medium text-pink-600 mb-1">{exp.company_name}</h5>
+                      <p className="text-sm text-gray-600 mb-2">{exp.duration}</p>
+                      {exp.projects.map((project: any, projIndex: number) => (
+                        <div key={projIndex} className="text-sm text-gray-700">
+                          {project.description_bullets.map((bullet: string, bulletIndex: number) => (
+                            <div key={bulletIndex}>• {bullet}</div>
+                          ))}
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
@@ -722,11 +783,11 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 {/* Education */}
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h3 className="text-xl font-bold text-purple-800 mb-4">EDUCATION</h3>
-                  {template.data.education.map((edu: any, index: number) => (
+                  {template.data.education_entries.map((edu: any, index: number) => (
                     <div key={index}>
                       <h4 className="text-lg font-semibold text-purple-700">{edu.degree}</h4>
-                      <h5 className="text-md text-pink-600">{edu.institution}</h5>
-                      <p className="text-sm text-gray-600">{edu.field} • {edu.graduationYear}</p>
+                      <h5 className="text-md text-pink-600">{edu.college}</h5>
+                      <p className="text-sm text-gray-600">{edu.start_year} - {edu.end_year}</p>
                     </div>
                   ))}
                 </div>
@@ -740,12 +801,14 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
           <div className="w-full max-w-4xl mx-auto bg-gray-900 text-white p-8 min-h-screen">
             {/* Header */}
             <div className="mb-8 border-b border-gray-700 pb-6">
-              <h1 className="text-4xl font-bold text-green-400 mb-2">{template.data.personalInfo.fullName}</h1>
-              <h2 className="text-2xl text-gray-300 mb-4">{template.data.personalInfo.jobTitle}</h2>
+              <h1 className="text-4xl font-bold text-green-400 mb-2">{template.data.name}</h1>
+              <h2 className="text-2xl text-gray-300 mb-4">{template.data.work_experiences[0]?.designation || "Software Engineer"}</h2>
               <div className="flex space-x-6 text-gray-400">
-                <span>✉ {template.data.personalInfo.email}</span>
-                <span>📱 {template.data.personalInfo.phone}</span>
-                <span>🔗 github.com/username</span>
+                <span>{template.data.email}</span>
+                <span>{template.data.phone_number}</span>
+                {template.data.external_links.map((link: string, index: number) => (
+                  <span key={index}>{link}</span>
+                ))}
               </div>
             </div>
             
@@ -755,18 +818,24 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 {/* Summary */}
                 <div>
                   <h3 className="text-xl font-bold text-teal-400 mb-4 border-l-4 border-green-400 pl-4">SUMMARY</h3>
-                  <p className="text-gray-300 leading-relaxed">{template.data.personalInfo.summary}</p>
+                  <p className="text-gray-300 leading-relaxed">{template.data.summary}</p>
                 </div>
                 
                 {/* Experience */}
                 <div>
                   <h3 className="text-xl font-bold text-teal-400 mb-4 border-l-4 border-green-400 pl-4">EXPERIENCE</h3>
-                  {template.data.workExperience.map((exp: any, index: number) => (
+                  {template.data.work_experiences.map((exp: any, index: number) => (
                     <div key={index} className="mb-6 last:mb-0 bg-gray-800 p-4 rounded-lg">
-                      <h4 className="text-lg font-semibold text-green-300">{exp.position}</h4>
-                      <h5 className="text-md text-teal-300 mb-1">{exp.company}</h5>
-                      <p className="text-sm text-gray-400 mb-3">{exp.startDate} - {exp.endDate}</p>
-                      <div className="text-sm text-gray-300 whitespace-pre-line">{exp.description}</div>
+                      <h4 className="text-lg font-semibold text-green-300">{exp.designation}</h4>
+                      <h5 className="text-md text-teal-300 mb-1">{exp.company_name}</h5>
+                      <p className="text-sm text-gray-400 mb-3">{exp.duration}</p>
+                      {exp.projects.map((project: any, projIndex: number) => (
+                        <div key={projIndex} className="text-sm text-gray-300">
+                          {project.description_bullets.map((bullet: string, bulletIndex: number) => (
+                            <div key={bulletIndex}>• {bullet}</div>
+                          ))}
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
@@ -778,7 +847,7 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold text-green-400 mb-4">TECHNICAL SKILLS</h3>
                   <div className="space-y-2">
-                    {template.data.technicalSkills.map((skill: string, index: number) => (
+                    {template.data.skills.map((skill: string, index: number) => (
                       <div key={index} className="flex items-center">
                         <span className="w-2 h-2 bg-teal-400 rounded-full mr-2"></span>
                         <span className="text-gray-300 text-sm">{skill}</span>
@@ -790,21 +859,21 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
                 {/* Education */}
                 <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold text-green-400 mb-4">EDUCATION</h3>
-                  {template.data.education.map((edu: any, index: number) => (
+                  {template.data.education_entries.map((edu: any, index: number) => (
                     <div key={index}>
                       <h4 className="text-md font-semibold text-green-300">{edu.degree}</h4>
-                      <h5 className="text-sm text-teal-300">{edu.institution}</h5>
-                      <p className="text-xs text-gray-400">{edu.field} • {edu.graduationYear}</p>
+                      <h5 className="text-sm text-teal-300">{edu.college}</h5>
+                      <p className="text-xs text-gray-400">{edu.start_year} - {edu.end_year}</p>
                     </div>
                   ))}
                 </div>
                 
-                {/* Soft Skills */}
+                {/* Languages */}
                 <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-lg font-bold text-green-400 mb-4">SOFT SKILLS</h3>
+                  <h3 className="text-lg font-bold text-green-400 mb-4">LANGUAGES</h3>
                   <div className="space-y-1">
-                    {template.data.softSkills.map((skill: string, index: number) => (
-                      <span key={index} className="block text-gray-300 text-sm">{skill}</span>
+                    {template.data.languages.map((lang: string, index: number) => (
+                      <span key={index} className="block text-gray-300 text-sm">{lang}</span>
                     ))}
                   </div>
                 </div>
@@ -818,75 +887,153 @@ const FullResumePreview = ({ template, onClose, onSelectTemplate }: { template: 
           <div className="w-full max-w-4xl mx-auto bg-white p-8 min-h-screen border border-gray-200">
             {/* Header */}
             <div className="text-center mb-8 border-b-2 border-blue-600 pb-6">
-              <h1 className="text-4xl font-bold text-blue-900 mb-2">{template.data.personalInfo.fullName}</h1>
-              <h2 className="text-2xl text-blue-700 mb-4">{template.data.personalInfo.jobTitle}</h2>
+              <h1 className="text-4xl font-bold text-blue-900 mb-2">{template.data.name}</h1>
+              <h2 className="text-2xl text-blue-700 mb-4">{template.data.work_experiences[0]?.designation || "Professional"}</h2>
               <div className="flex justify-center space-x-6 text-blue-600">
-                <span>{template.data.personalInfo.email}</span>
-                <span>{template.data.personalInfo.phone}</span>
-                <span>LinkedIn.com/in/profile</span>
+                <span>{template.data.email}</span>
+                <span>{template.data.phone_number}</span>
+                {template.data.external_links.slice(0, 1).map((link: string, index: number) => (
+                  <span key={index}>{link}</span>
+                ))}
               </div>
             </div>
             
             {/* Summary */}
             <div className="mb-8">
               <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">PROFESSIONAL SUMMARY</h3>
-              <p className="text-gray-700 leading-relaxed">{template.data.personalInfo.summary}</p>
+              <p className="text-gray-700 leading-relaxed">{template.data.summary}</p>
             </div>
             
             {/* Experience */}
             <div className="mb-8">
               <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">PROFESSIONAL EXPERIENCE</h3>
-              {template.data.workExperience.map((exp: any, index: number) => (
+              {template.data.work_experiences.map((exp: any, index: number) => (
                 <div key={index} className="mb-6 last:mb-0">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h4 className="text-lg font-semibold text-blue-800">{exp.position}</h4>
-                      <h5 className="text-md font-medium text-blue-600">{exp.company}</h5>
+                      <h4 className="text-lg font-semibold text-blue-800">{exp.designation}</h4>
+                      <h5 className="text-md font-medium text-blue-600">{exp.company_name}</h5>
                     </div>
-                    <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">{exp.startDate} - {exp.endDate}</span>
+                    <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">{exp.duration}</span>
                   </div>
-                  <div className="text-sm text-gray-700 whitespace-pre-line ml-4">{exp.description}</div>
+                  {exp.projects.map((project: any, projIndex: number) => (
+                    <div key={projIndex} className="text-sm text-gray-700 ml-4">
+                      {project.description_bullets.map((bullet: string, bulletIndex: number) => (
+                        <div key={bulletIndex}>• {bullet}</div>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
+
+            {/* Internships */}
+            {template.data.internships && template.data.internships.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">INTERNSHIPS</h3>
+                {template.data.internships.map((internship: any, index: number) => (
+                  <div key={index} className="mb-6 last:mb-0">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h4 className="text-lg font-semibold text-blue-800">{internship.designation}</h4>
+                        <h5 className="text-md font-medium text-blue-600">{internship.company_name}</h5>
+                      </div>
+                      <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">{internship.duration}</span>
+                    </div>
+                    <div className="text-sm text-gray-700 ml-4">
+                      {internship.internship_work_description_bullets.map((bullet: string, bulletIndex: number) => (
+                        <div key={bulletIndex}>• {bullet}</div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Academic Projects */}
+            {template.data.academic_projects && template.data.academic_projects.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">ACADEMIC PROJECTS</h3>
+                {template.data.academic_projects.map((project: any, index: number) => (
+                  <div key={index} className="mb-4 last:mb-0">
+                    <h4 className="text-lg font-semibold text-blue-800">{project.project_name}</h4>
+                    <p className="text-sm text-gray-600 mb-2">{project.duration}</p>
+                    <div className="text-sm text-gray-700 ml-4">
+                      {project.description_bullets.map((bullet: string, bulletIndex: number) => (
+                        <div key={bulletIndex}>• {bullet}</div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
             
             {/* Education & Skills */}
             <div className="grid grid-cols-2 gap-8">
               {/* Education */}
               <div>
                 <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">EDUCATION</h3>
-                {template.data.education.map((edu: any, index: number) => (
+                {template.data.education_entries.map((edu: any, index: number) => (
                   <div key={index} className="mb-4">
                     <h4 className="text-lg font-semibold text-blue-800">{edu.degree}</h4>
-                    <h5 className="text-md text-blue-600">{edu.institution}</h5>
-                    <p className="text-sm text-gray-600">{edu.field} • Class of {edu.graduationYear}</p>
+                    <h5 className="text-md text-blue-600">{edu.college}</h5>
+                    <p className="text-sm text-gray-600">Class of {edu.end_year}</p>
                   </div>
                 ))}
               </div>
               
-              {/* Skills */}
+              {/* Skills & Certifications */}
               <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">CORE COMPETENCIES</h3>
+                <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">SKILLS & CERTIFICATIONS</h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-semibold text-blue-700 mb-2">Technical Skills</h4>
+                    <h4 className="font-semibold text-blue-700 mb-2">Skills</h4>
                     <div className="flex flex-wrap gap-2">
-                      {template.data.technicalSkills.map((skill: string, index: number) => (
+                      {template.data.skills.map((skill: string, index: number) => (
                         <span key={index} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">{skill}</span>
                       ))}
                     </div>
                   </div>
+                  
+                  {template.data.certifications && template.data.certifications.length > 0 && (
+                    <div>
+                      <h4 className="font-semibold text-blue-700 mb-2">Certifications</h4>
+                      {template.data.certifications.map((cert: any, index: number) => (
+                        <div key={index} className="mb-2">
+                          <span className="text-sm font-medium text-gray-800">{cert.certification}</span>
+                          <span className="text-xs text-gray-600 ml-2">({cert.time_of_certification})</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  
                   <div>
-                    <h4 className="font-semibold text-blue-700 mb-2">Soft Skills</h4>
+                    <h4 className="font-semibold text-blue-700 mb-2">Languages</h4>
                     <div className="flex flex-wrap gap-2">
-                      {template.data.softSkills.map((skill: string, index: number) => (
-                        <span key={index} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">{skill}</span>
+                      {template.data.languages.map((lang: string, index: number) => (
+                        <span key={index} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">{lang}</span>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Achievements */}
+            {template.data.achievements && template.data.achievements.length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-blue-900 mb-4 border-b border-blue-300 pb-2">ACHIEVEMENTS</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {template.data.achievements.map((achievement: any, index: number) => (
+                    <div key={index} className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-800">{achievement.title}</h4>
+                      <p className="text-sm text-blue-600">{achievement.awarding_body} • {achievement.year}</p>
+                      <p className="text-sm text-gray-700 mt-1">{achievement.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         );
     }
@@ -998,17 +1145,43 @@ export const EnhancedTemplates = ({ onSelectTemplate }: EnhancedTemplatesProps) 
     return matchesSearch && matchesCategory && matchesLevel && matchesIndustry;
   });
 
-  const handleUseTemplateClick = (data: any) => {
-    setSelectedTemplateData(data);
+  const handleUseTemplateClick = (templateData: any) => {
+    // Make sure we're passing a clean copy of the template data
+    const cleanTemplateData = JSON.parse(JSON.stringify(templateData));
+    setSelectedTemplateData(cleanTemplateData);
     setIsTailoringDialogOpen(true);
   };
 
   const handleTailoringConfirm = (file: File, industry: string) => {
-    console.log("Tailoring confirmed:", { file, industry, selectedTemplateData });
-    // Here you would typically handle the file upload and then create the resume
-    // For now, we'll just pass the template data to the parent component
-    onSelectTemplate(selectedTemplateData);
-    setIsTailoringDialogOpen(false);
+    try {
+      // Create a merged data object with the template and tailoring info
+      const mergedData = {
+        ...selectedTemplateData,
+        tailoring: {
+          jobDescription: file,
+          industry: industry
+        }
+      };
+      
+      // Pass the merged data to the parent component
+      onSelectTemplate(mergedData);
+      setIsTailoringDialogOpen(false);
+    } catch (error) {
+      console.error("Error creating resume:", error);
+      // You might want to show an error message to the user here
+    }
+  };
+
+  const handleTemplateSelect = (template: Template) => {
+    try {
+      // Make a clean copy of the template data
+      const templateData = JSON.parse(JSON.stringify(template.data));
+      onSelectTemplate(templateData);
+      setPreviewTemplate(null);
+    } catch (error) {
+      console.error("Error selecting template:", error);
+      // You might want to show an error message to the user here
+    }
   };
 
   return (
@@ -1028,7 +1201,18 @@ export const EnhancedTemplates = ({ onSelectTemplate }: EnhancedTemplatesProps) 
             className="w-full md:col-span-2"
           />
           
-          
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <SelectTrigger>
+              <SelectValue placeholder="Category" />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map(category => (
+                <SelectItem key={category} value={category}>
+                  {category === "all" ? "All Categories" : category}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
           <Select value={selectedLevel} onValueChange={setSelectedLevel}>
             <SelectTrigger>
@@ -1042,20 +1226,20 @@ export const EnhancedTemplates = ({ onSelectTemplate }: EnhancedTemplatesProps) 
               ))}
             </SelectContent>
           </Select>
-
-          <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
-            <SelectTrigger>
-              <SelectValue placeholder="Industry" />
-            </SelectTrigger>
-            <SelectContent>
-              {industries.map(industry => (
-                <SelectItem key={industry} value={industry}>
-                  {industry === "all" ? "All Industries" : industry}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
+        
+        <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
+          <SelectTrigger className="md:w-1/4">
+            <SelectValue placeholder="Industry" />
+          </SelectTrigger>
+          <SelectContent>
+            {industries.map(industry => (
+              <SelectItem key={industry} value={industry}>
+                {industry === "all" ? "All Industries" : industry}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Templates Grid */}
@@ -1144,7 +1328,7 @@ export const EnhancedTemplates = ({ onSelectTemplate }: EnhancedTemplatesProps) 
         <FullResumePreview 
           template={previewTemplate} 
           onClose={() => setPreviewTemplate(null)} 
-          onSelectTemplate={onSelectTemplate}
+          onSelectTemplate={handleTemplateSelect}
         />
       )}
 
@@ -1156,5 +1340,7 @@ export const EnhancedTemplates = ({ onSelectTemplate }: EnhancedTemplatesProps) 
     </div>
   );
 };
+
+
 
 export default EnhancedTemplates;

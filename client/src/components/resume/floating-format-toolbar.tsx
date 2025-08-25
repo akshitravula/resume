@@ -42,9 +42,20 @@ interface FloatingFormatToolbarProps {
   };
 }
 
+const defaultFormats = {
+  bold: false,
+  italic: false,
+  underline: false,
+  fontSize: 'base',
+  fontFamily: 'sans',
+  alignment: 'left',
+  letterSpacing: 'normal',
+  lineHeight: 'normal'
+};
+
 export const FloatingFormatToolbar: React.FC<FloatingFormatToolbarProps> = ({
   onFormatChange,
-  currentFormats
+  currentFormats = defaultFormats
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -271,7 +282,7 @@ export const FloatingFormatToolbar: React.FC<FloatingFormatToolbarProps> = ({
     >
       {/* Font Family */}
       <Select
-        value={currentFormats.fontFamily}
+        value={currentFormats?.fontFamily || 'sans'}
         onValueChange={(value) => handleFormatChange('fontFamily', value)}
         onOpenChange={(open) => {
           if (open) startInteraction();
