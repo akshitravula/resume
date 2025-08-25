@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(174, 73%, 46%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --accent2: hsl(37, 95%, 49%);
+  --accent2-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(174, 73%, 46%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --accent2: hsl(37, 95%, 49%);
+  --accent2-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .resume-shadow {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* ContentEditable formatting styles */
+  [contenteditable="true"] {
+    cursor: text;
+    min-height: 1em;
+  }
+
+  [contenteditable="true"]:focus {
+    outline: none;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 4px;
+  }
+
+  [contenteditable="true"] span {
+    display: inline;
+  }
+
+  [contenteditable="true"] .text-xs { font-size: 0.75rem; }
+  [contenteditable="true"] .text-sm { font-size: 0.875rem; }
+  [contenteditable="true"] .text-base { font-size: 1rem; }
+  [contenteditable="true"] .text-lg { font-size: 1.125rem; }
+  [contenteditable="true"] .text-xl { font-size: 1.25rem; }
+  [contenteditable="true"] .text-2xl { font-size: 1.5rem; }
+
+  [contenteditable="true"] .font-sans { font-family: ui-sans-serif, system-ui, sans-serif; }
+  [contenteditable="true"] .font-serif { font-family: ui-serif, Georgia, serif; }
+  [contenteditable="true"] .font-mono { font-family: ui-monospace, SFMono-Regular, monospace; }
+}
