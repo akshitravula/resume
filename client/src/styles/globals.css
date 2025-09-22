@@ -1,0 +1,113 @@
+@keyframes highlight {
+  0% { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+
+.highlight {
+  animation: highlight 2s ease-out;
+}
+
+.page {
+  width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20mm;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.resume-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* Resume preview styles */
+.resume-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+.resume-pages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.resume-page, .a4-page {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20mm;
+  overflow: hidden;
+  position: relative;
+  page-break-after: always;
+}
+
+.a4-page:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+@media print {
+  .resume-page, .a4-page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    break-after: page;
+  }
+  
+  .resume-content {
+    height: 100%;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+/* Prevent content overflow */
+.resume-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.hidden {
+  display: none;
+}
+
+[contenteditable] {
+  outline: none;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+[contenteditable] span {
+  border-radius: 2px;
+}
+
+[contenteditable] span:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.format-toolbar {
+  user-select: none;
+}
+
+.format-toolbar button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.format-toolbar button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
